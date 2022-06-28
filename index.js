@@ -26,11 +26,26 @@ class LinkedList {
   }
 
 
-  //removeTail(){}
+  removeTail(){
+    let prev = this.head;
+    let current = this.head.next;
+    if(!current){
+      this.head = null;
+      return;
+    }
+    while (current.next) {
+      prev = current;
+      current = current.next;
+    }
+    prev.next = null;
+  }
 
   getList() {
     const listArr = [];
     let current = this.head;
+    if(current === null) {
+      return listArr;
+    }
     while (current.next) {
       listArr.push(current.val);
       current = current.next;
